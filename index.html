@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calls</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div id="auth">
+        <div id="label">Вход</div>
+        <input id="email" type="email">
+        <input id="password" type="password">
+        <button id="button" href="schedule.html">Войти</button>
+    </div>
+    <script>
+        let addr = "http://localhost:3000"
+        if (localStorage.auth === true) {
+            window.location.replace(window.location.hostname + "/schedule.html");
+        }
+        $("#button").on("click", () => {
+            var email = $("#email").val(),
+                password = $("#password").val()
+            if (email == "")
+                Swal.fire(
+                    'Ошибочка',
+                    'Поле почты пустое',
+                    'error'
+                )
+            else if (password == "")
+                Swal.fire(
+                    'Ошибочка',
+                    'Поле пароля пустое',
+                    'error'
+                )
+            else {
+                $.get(addr + '/auth', {
+                    email: email,
+                    password: password
+                }, function(data) {
+                    data = JSON.parse(data);
+                    console.log(data)
+                    if (data.status == "success") {
+                        localStorage.auth = true;
+                        localStorage.jwt = data.jwt;
+                        window.location.replace("/schedule.html");
+                    } else {
+                        Swal.fire(
+                            'Ошибочка',
+                            'Неизвестная ошибка',
+                            'error'
+                        )
+                    }
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>

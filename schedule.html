@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calls</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="header">
+        <a class="header-link" href="">Объявления</a>
+        <a class="header-link" href="">Файл</a>
+        <a class="header-link" href="">Пользователи</a>
+        <a class="header-link selected" href="">Расписание</a>
+        <a class="header-link" id="exit" href="">Выйти</a>
+    </div>
+    <div id="schedule">
+        <div class="lesson">
+            <input type="time" class="time" value="08:00" name="appt" min="00:00" max="24:00" required>
+            <p id="dash">-</p>
+            <input type="time" class="time" value="09:00" name="appt" min="00:00" max="24:00" required>
+        </div>
+        <div class="lesson">
+            <input type="time" class="time" value="08:00" name="appt" min="00:00" max="24:00" required>
+            <p id="dash">-</p>
+            <input type="time" class="time" value="09:00" name="appt" min="00:00" max="24:00" required>
+        </div>
+        <div class="lesson">
+            <input type="time" class="time" value="08:00" name="appt" min="00:00" max="24:00" required>
+            <p id="dash">-</p>
+            <input type="time" class="time" value="09:00" name="appt" min="00:00" max="24:00" required>
+        </div>
+    </div>
+    <div id="bottom-buttons">
+        <div id="save">Сохранить</div>
+        <div id="add">Добавить</div>
+    </div>
+    <select name="week" id="week">
+        <option value="pn">Понедельник</option>
+        <option value="vt">Вторник</option>
+        <option value="sr">Среда</option>
+        <option value="cht">Четверг</option>
+        <option value="pyat">Пятница</option>
+        <option value="sub">Суббота</option>
+        <option value="vsk">Восресенье</option>
+    </select>
+</body>
+
+</html>
