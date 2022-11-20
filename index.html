@@ -4,6 +4,7 @@
 <head>
     <title>Calls</title>
     <link rel="stylesheet" href="index.css">
+    <meta charset="utf8">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -16,9 +17,9 @@
         <button id="button" href="schedule.html">Войти</button>
     </div>
     <script>
-        let addr = "http://localhost:3000"
-        if (localStorage.auth === true) {
-            window.location.replace(window.location.hostname + "/schedule.html");
+        let addr = "http://192.168.43.93:3000"
+        if (localStorage.auth === 'true') {
+            window.location.replace("/schedule.html");
         }
         $("#button").on("click", () => {
             var email = $("#email").val(),
@@ -36,22 +37,44 @@
                     'error'
                 )
             else {
-                $.get(addr + '/auth', {
-                    email: email,
-                    password: password
-                }, function(data) {
-                    data = JSON.parse(data);
-                    console.log(data)
-                    if (data.status == "success") {
-                        localStorage.auth = true;
-                        localStorage.jwt = data.jwt;
-                        window.location.replace("/schedule.html");
-                    } else {
-                        Swal.fire(
-                            'Ошибочка',
-                            'Неизвестная ошибка',
-                            'error'
-                        )
+                $.ajax({
+                    url: addr + '/auth',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function(data) {
+                        console.log(data)
+                        if (data.status == "success") {
+                            localStorage.auth = true;
+                            localStorage.jwt = data.jwt;
+                            window.location.replace("/schedule.html");
+                        } else {
+                            Swal.fire(
+                                'Ошибочка',
+                                'Неизвестная ошибка',
+                                'error'
+                            )
+                        }
+                    },
+                    error: function(data, b, c) {
+                        console.log(data, b, c)
+                        if (data.status == 404) {
+                            Swal.fire(
+                                'Ошибочка',
+                                'Неверный логин или пароль',
+                                'error'
+                            )
+                        } else {
+                            Swal.fire(
+                                'Ошибочка',
+                                'Неизвестная ошибка',
+                                'error'
+                            )
+                        }
+
                     }
                 });
             }

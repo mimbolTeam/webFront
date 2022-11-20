@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
-body {
-    overflow: hidden;
-}
+body {}
 
 * {
     font-family: Roboto;
@@ -62,9 +60,13 @@ body {
 }
 
 #bottom-buttons {
-    width: fit-content;
+    width: 90vw;
     margin: 0 auto;
     height: 10vh;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5vw;
 }
 
 #save {
