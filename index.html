@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Design by Kuzmin Aleksandr, Telegram: @warkkaa -->
 
 <head>
-    <title>Calls</title>
-    <link rel="stylesheet" href="index.css">
-    <meta charset="utf8">
+    <meta charset="UTF-8">
+    <title>Звонки</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <div id="auth">
-        <div id="label">Вход</div>
-        <input id="email" type="email">
-        <input id="password" type="password">
-        <button id="button">Войти</button>
+        <img src="logo.svg" alt="" id="logo">
+        <div action="" id="auth_inputs">
+            <input type="email" id="email" class="auth_inp" required placeholder="Почта">
+            <input type="password" id="password" class="auth_inp" required placeholder="Пароль">
+            <button id="button">Войти</button>
+        </div>
+        <p id="rem_pass">Для смены пароля свяжитесь с
+            <font>@mimbol</font>
+        </p>
     </div>
     <script>
         let addr = "http://rings.mimbol.ru:3000"
