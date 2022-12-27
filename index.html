@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
 <!-- Design by Kuzmin Aleksandr, Telegram: @warkkaa -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Звонки</title>
+
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-default@4/default.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="color-dark.css" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="color-light.css" media="(prefers-color-scheme: light)">
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body style="height: 100vh !important;">
     <div id="auth">
         <img src="logo.svg" alt="" id="logo">
         <div action="" id="auth_inputs">
@@ -24,6 +29,10 @@
         <p id="rem_pass">Для смены пароля свяжитесь с
             <font>@mimbol</font>
         </p>
+    </div>
+    <div class="theme_swich">
+        <input type="checkbox" id="theme">
+        <label for="theme"></label>
     </div>
     <script>
         let addr = "http://rings.mimbol.ru:3000"
