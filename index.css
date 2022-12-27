@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    background: var(--surface-background);
 }
 
 #auth {
@@ -22,6 +23,10 @@ body {
     max-width: 400px;
     align-content: center;
     justify-content: center;
+    padding: 0 6vw;
+    border-radius: 40px;
+    background: var(--surface-surface);
+    border: solid 3px var(--surface-surface-stroke);
 }
 
 #logo {
@@ -42,15 +47,16 @@ body {
     font-size: 16px;
     max-height: 25px;
     transition: outline 0.3s ease-out;
-    outline: solid 2px rgba(60, 60, 67, 0);
+    outline: solid 3px rgba(60, 60, 67, 0);
 }
 
 .auth_inp:focus-visible {
-    outline: solid 2px var(--blue-light);
+    outline: solid 3px var(--blue-light);
 }
 
 .auth_inp:first-child {
     margin-top: 4.5vh;
+    color: var(--text-h1);
 }
 
 #button {
