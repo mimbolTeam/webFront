@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
     font-style: normal;
     font-weight: 500;
@@ -21,10 +20,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     max-width: 400px;
-    align-content: center;
+    align-content: space-between;
     justify-content: center;
-    padding: 0 6vw;
-    border-radius: 40px;
+    padding: 6vh 6vw;
+    border-radius: 5vh;
     background: var(--surface-surface);
     border: solid 3px var(--surface-surface-stroke);
 }
@@ -61,7 +60,7 @@ body {
 
 #button {
     width: 100%;
-    margin: 0;
+    margin: 3% 0;
     border: none;
     border-radius: 12px;
     color: #FFF;
@@ -87,4 +86,19 @@ body {
 
 font {
     color: var(--blue-light);
+}
+
+.theme_switch {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+}
+
+#theme {
+    display: none;
+}
+
+#theme_switcher {
+    width: auto;
+    height: 48px;
 }

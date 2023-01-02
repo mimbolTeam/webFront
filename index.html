@@ -6,21 +6,54 @@
     <meta charset="UTF-8">
     <title>Звонки</title>
 
-    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
-    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-default@4/default.css" rel="stylesheet" media="(prefers-color-scheme: light)">
+    <script src="js/jquery.js"></script>
+    <script src="js/swal2.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="css/swalda.css" id="sw">
+    <link rel="stylesheet" href="css/color-dark.css" id="cl">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="color-dark.css" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="color-light.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="index.css">
+    <script>
+        matchMedia("(prefers-color-scheme: dark)").onchange = () => {
+            changeTheme(matchMedia("(prefers-color-scheme: light)").matches)
+        };
+        $(() => initTheme());
+        var storTheme = localStorage.theme,
+            nowTheme;
+
+        function changePref(f) {
+            localStorage.setItem("theme", !f ? "l" : "b");
+        }
+
+        function changeTheme(theme) {
+            th = theme;
+            $("#cl")[0].href = "css/color-" + (theme ? "light" : "dark") + ".css";
+            nowTheme = theme
+        }
+
+        function initTheme() {
+            var pref = matchMedia("(prefers-color-scheme: dark)").matches;
+            if (storTheme == "l") {
+                console.log("f", "a");
+                th = true;
+            } else if (storTheme == "b") {
+                console.log("f", "d");
+            } else if (pref == false) {
+                console.log("f", "b");
+                th = true;
+            } else {
+                console.log("f", "c");
+            }
+            nowTheme = th;
+            $("#cl")[0].href = "css/color-" + (th ? "light" : "dark") + ".css";
+        }
+    </script>
 </head>
 
 <body style="height: 100vh !important;">
     <div id="auth">
-        <img src="logo.svg" alt="" id="logo">
+        <img src="img/logo.svg" alt="" id="logo">
         <div action="" id="auth_inputs">
             <input type="email" id="email" class="auth_inp" required placeholder="Почта">
             <input type="password" id="password" class="auth_inp" required placeholder="Пароль">
@@ -30,11 +63,21 @@
             <font>@mimbol</font>
         </p>
     </div>
-    <div class="theme_swich">
+    <div class="theme_switch">
         <input type="checkbox" id="theme">
-        <label for="theme"></label>
+        <label for="theme">
+            <svg id="theme_switcher" width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <circle cx="16" cy="16" r="6" stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                <path stroke="#535358" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 6V3M8.929 8.929L6.808 6.808M6 16H3M16 29v-3M25.192 25.192l-2.121-2.121M29 16h-3M8.929 23.071l-2.121 2.121M25.192 6.808l-2.12 2.121"/>
+            </svg>
+        </label>
     </div>
     <script>
+        $("#theme").on("change", () => {
+            changeTheme(!nowTheme);
+            changePref(!nowTheme);
+        })
+
         let addr = "http://rings.mimbol.ru:3000"
         if (localStorage.auth === 'true') {
             window.location.replace("/schedule.html");
