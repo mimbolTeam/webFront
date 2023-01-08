@@ -144,11 +144,10 @@ input.les_time {
     font-family: 'Inter', sans-serif;
 }
 
-
-/* input.les_time:focus {
+input.les_time:focus {
     outline: var(--blue-light) solid 3px;
     color: var(--blue-light);
-} */
+}
 
 p.wall {
     margin: 0;
@@ -169,8 +168,9 @@ img.remove {
     height: 1.4vh;
 }
 
-input[type="time"]::-webkit-calendar-picker-indicator {
+
+/* input[type="time"]::-webkit-calendar-picker-indicator {
     background: none;
     width: 0;
     display: none;
-}
+} */
