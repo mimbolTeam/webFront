@@ -147,7 +147,9 @@ p.wall {
     margin: 0;
     height: min-content;
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--blue-light);
 }
 
 div.remove {
@@ -158,4 +160,10 @@ div.remove {
 img.remove {
     width: auto;
     height: 1.4vh;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    width: 0;
+    display: none;
 }

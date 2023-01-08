@@ -26,6 +26,7 @@ body {
     border-radius: 5vh;
     background: var(--surface-surface);
     border: solid 3px var(--surface-surface-stroke);
+    max-height: 370px;
 }
 
 #logo {
