@@ -141,7 +141,14 @@ input.les_time {
     font-weight: 600;
     font-size: 1rem;
     padding: 3px 6px;
+    font-family: 'Inter', sans-serif;
 }
+
+
+/* input.les_time:focus {
+    outline: var(--blue-light) solid 3px;
+    color: var(--blue-light);
+} */
 
 p.wall {
     margin: 0;
