@@ -168,9 +168,8 @@ img.remove {
     height: 1.4vh;
 }
 
-
-/* input[type="time"]::-webkit-calendar-picker-indicator {
+input[type="time"]::-webkit-calendar-picker-indicator {
     background: none;
     width: 0;
     display: none;
-} */
+}
